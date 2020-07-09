@@ -9,6 +9,7 @@ public class Product {
     private Double basePrice;
     private String lineProduct;
     private String maintenance;
+    private String condition;
 
     public Product(String id)   {
         this.id = id;
@@ -54,6 +55,14 @@ public class Product {
         this.maintenance = maintenance;
     }
 
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
     public Product()   {
 
         //HighProductFactory factoryProduct = new HighProductFactory();
@@ -61,5 +70,6 @@ public class Product {
 
         this.lineProduct = factoryProduct.getLineProduct().getLine();
         this.maintenance = factoryProduct.getMaintenance().getPeriod();
+        this.condition = factoryProduct.getProductCondition().getCondition();
     }
 }
