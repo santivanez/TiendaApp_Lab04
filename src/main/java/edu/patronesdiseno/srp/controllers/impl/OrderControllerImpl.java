@@ -56,8 +56,11 @@ public class OrderControllerImpl implements OrderController {
         //DiscountFactory factoryDiscount = new DiscountFactory();
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_ANNIVERSARY);
-        IDiscountFactory factoryDiscount = new CouponDiscountFactory();
-        IDiscount discount = factoryDiscount.createDiscount();
+//        IDiscountFactory factoryDiscount = new CouponDiscountFactory();
+//        IDiscount discount = factoryDiscount.createDiscount();
+        
+        //DiscountFactory con singleton
+        IDiscount discount = DiscountFactory.createDiscount(DiscountFactory.DISCOUNT_COUPON);
 
         order.calculateTotalOrder(discount);
         orderRepository.create(order);

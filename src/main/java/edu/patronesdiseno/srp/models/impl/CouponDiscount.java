@@ -7,7 +7,6 @@ public class CouponDiscount implements IDiscount    {
     private Double discount;
 
     public CouponDiscount() {
-
         this.discount = 50.0;
     }
 
