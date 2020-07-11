@@ -49,6 +49,7 @@ public class App {
         Javalin server = Javalin.create(
             config -> {
                 config.registerPlugin(new OpenApiPlugin(openApi));
+                config.enableCorsForOrigin("http://localhost:4200");
             }
         ).start(7000);
 

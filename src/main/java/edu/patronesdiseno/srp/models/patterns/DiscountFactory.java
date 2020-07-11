@@ -26,7 +26,7 @@ public class DiscountFactory {
                                         return instanceAnniversary;
             default : return null;
         }
-        
+    }    
 //        
 //        if (typeDiscount.equals(DISCOUNT_COUPON))  {
 //
@@ -41,5 +41,5 @@ public class DiscountFactory {
 //
 //            return null;
 //        }
-    }
+    
 }

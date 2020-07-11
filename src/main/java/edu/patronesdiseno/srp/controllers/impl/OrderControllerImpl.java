@@ -2,6 +2,8 @@ package edu.patronesdiseno.srp.controllers.impl;
 
 import edu.patronesdiseno.srp.config.Paths;
 import edu.patronesdiseno.srp.controllers.OrderController;
+import edu.patronesdiseno.srp.models.Address;
+import edu.patronesdiseno.srp.models.Customer;
 import edu.patronesdiseno.srp.models.Delivery;
 import edu.patronesdiseno.srp.models.Order;
 import edu.patronesdiseno.srp.models.Product;
@@ -53,6 +55,12 @@ public class OrderControllerImpl implements OrderController {
         items.add(oi2);
         order.setOrderItems(items);
 
+        //EJEMPLO DE LA 4****************
+        Customer c1 = new Customer("C001","Pedro",Address.createAddress(Address.CONDOMIN).getAddress(145,"Cipreses"));
+        
+        System.out.println("Direccion cliente:" +c1.getAddress());
+        ///***************
+        
         //DiscountFactory factoryDiscount = new DiscountFactory();
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_ANNIVERSARY);
