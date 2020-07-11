@@ -1,4 +1,4 @@
-package edu.patronesdiseno.srp.models.patterns;
+package edu.patronesdiseno.srp.models.interfaces;
 
 public interface ITax {
 

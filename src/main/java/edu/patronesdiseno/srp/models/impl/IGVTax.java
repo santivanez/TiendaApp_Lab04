@@ -1,6 +1,6 @@
 package edu.patronesdiseno.srp.models.impl;
 
-import edu.patronesdiseno.srp.models.patterns.ITax;
+import edu.patronesdiseno.srp.models.interfaces.ITax;
 
 public class IGVTax implements ITax {
 

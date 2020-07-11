@@ -4,7 +4,7 @@ import java.util.List;
 
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
-import edu.patronesdiseno.srp.models.patterns.ITax;
+import edu.patronesdiseno.srp.models.interfaces.ITax;
 
 public class Order {
 
