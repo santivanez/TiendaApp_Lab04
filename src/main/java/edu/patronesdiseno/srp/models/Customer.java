@@ -3,9 +3,9 @@ package edu.patronesdiseno.srp.models;
 public class Customer {
     private String id;
     private String name;
-    private String address;
+    private Address address;
 
-    public Customer(String id, String name, String address) {
+    public Customer(String id, String name, Address address) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -27,11 +27,11 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

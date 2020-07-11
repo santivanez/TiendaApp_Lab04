@@ -53,9 +53,13 @@ public class OrderControllerImpl implements OrderController {
         order.setOrderItems(items);
 
         //EJEMPLO DE LA 4****************
-        Customer c1 = new Customer("C001","Pedro",Address.createAddress(Address.CONDOMIN).getAddress(145,"Cipreses"));
-        
-        System.out.println("Direccion cliente:" +c1.getAddress());
+        AddressUrbanizacion urbanizacion = new AddressUrbanizacion();
+        Address ad1 = urbanizacion.withNro(152)
+                .withAvenida("Cesar Canevarp")
+                .withUrbanizacion("San Juan")
+                .build();
+        Customer c1 = new Customer("C001","Pedro",ad1);
+        System.out.println(c1.getAddress());
         ///***************
         
         //DiscountFactory factoryDiscount = new DiscountFactory();
