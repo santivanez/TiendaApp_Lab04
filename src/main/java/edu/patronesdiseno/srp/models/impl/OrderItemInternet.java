@@ -1,9 +1,11 @@
 package edu.patronesdiseno.srp.models.impl;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.patronesdiseno.srp.models.Order;
 import edu.patronesdiseno.srp.models.Product;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
 
+@JsonTypeName("orderiteminternet")
 public class OrderItemInternet implements IOrderItem {
     //private Order order;
     //private Product product;
@@ -11,6 +13,10 @@ public class OrderItemInternet implements IOrderItem {
     private Integer quantity;
     private Double price;
 
+    public OrderItemInternet() {
+        super();
+    }
+    
     public OrderItemInternet(String idProduct,Integer quantity,Double price)  {
         //this.order = order;
         //this.product = product;

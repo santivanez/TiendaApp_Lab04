@@ -45,12 +45,12 @@ public class OrderControllerImpl implements OrderController {
         String bestCourier = orderCourierDispatcher.getBestCourier();
         order.setCourier(bestCourier);
 
-        List<IOrderItem> items = new ArrayList<>();
-        OrderItemInternet oi1 = new OrderItemInternet( "P01010034", 1, 100.00);
-        OrderItemInternet oi2 = new OrderItemInternet( "P01010025", 1, 200.00);
-        items.add(oi1);
-        items.add(oi2);
-        order.setOrderItems(items);
+//        List<IOrderItem> items = new ArrayList<>();
+//        OrderItemInternet oi1 = new OrderItemInternet( "P01010034", 1, 100.00);
+//        OrderItemInternet oi2 = new OrderItemInternet( "P01010025", 1, 200.00);
+//        items.add(oi1);
+//        items.add(oi2);
+//        order.setOrderItems(items);
 
         //EJEMPLO DE LA 4****************
         AddressUrbanizacion urbanizacion = new AddressUrbanizacion();
@@ -73,7 +73,7 @@ public class OrderControllerImpl implements OrderController {
         order.calculateTotalOrder(discount);
 
         ITax tax = TaxFactory.createTax(TaxFactory.IGV_TAX);
-        order.calculateTax(tax);
+        System.out.println(order.calculateTax(tax));
 
         orderRepository.create(order);
         context.status(HttpStatus.CREATED_201)

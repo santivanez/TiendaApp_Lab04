@@ -1,9 +1,11 @@
 package edu.patronesdiseno.srp.models.impl;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.patronesdiseno.srp.models.Order;
 import edu.patronesdiseno.srp.models.Product;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
 
+@JsonTypeName("orderitempromocion")
 public class OrderItemPromocion implements IOrderItem {
 
     //private Order order;
@@ -11,6 +13,9 @@ public class OrderItemPromocion implements IOrderItem {
     private Integer quantity;
     private Double price;
 
+    public OrderItemPromocion() {super();
+    }
+    
     @Override
     public Double calculatePrice() {
         // TODO Auto-generated method stub

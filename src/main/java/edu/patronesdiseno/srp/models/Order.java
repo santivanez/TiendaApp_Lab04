@@ -1,5 +1,6 @@
 package edu.patronesdiseno.srp.models;
 
+import edu.patronesdiseno.srp.models.impl.OrderItemInternet;
 import java.util.List;
 
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
@@ -17,7 +18,8 @@ public class Order {
     private Double tax;
     
     private List<IOrderItem> orderItems;
-
+    //private List<OrderItemInternet> orderItems;
+    
     public List<IOrderItem> getOrderItems() {
         //List<IOrderItem> ordersItems = new ArrayList<>();
         /*
@@ -60,15 +62,15 @@ public class Order {
     }
 
     public Double calculateTax(ITax iTax){
-        Double totalTax = 0.0;
+        this.tax = 0.0;
         final List<IOrderItem> orderItems = this.getOrderItems();
         for (IOrderItem item: orderItems) {
-            totalTax += item.getPrice() * iTax.getTax();
+            tax += item.getPrice() * iTax.getTax();
         }
-        if (iTax != null) {
+        if (iTax == null) {
             this.tax = 0.0;
         }
-        return totalTax;
+        return tax;
     }
 
     public String getAddress() {
