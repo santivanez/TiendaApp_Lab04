@@ -10,10 +10,7 @@ import edu.patronesdiseno.srp.models.Product;
 import edu.patronesdiseno.srp.models.impl.OrderItemInternet;
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
-import edu.patronesdiseno.srp.models.patterns.CouponDiscountFactory;
-import edu.patronesdiseno.srp.models.patterns.DiscountFactory;
-import edu.patronesdiseno.srp.models.patterns.HomeDeliveryBuilder;
-import edu.patronesdiseno.srp.models.patterns.IDiscountFactory;
+import edu.patronesdiseno.srp.models.patterns.*;
 import edu.patronesdiseno.srp.repositories.OrderRepository;
 import edu.patronesdiseno.srp.utils.OrderCourierDispatcher;
 
@@ -69,8 +66,11 @@ public class OrderControllerImpl implements OrderController {
         
         //DiscountFactory con singleton
         IDiscount discount = DiscountFactory.createDiscount(DiscountFactory.DISCOUNT_COUPON);
-
         order.calculateTotalOrder(discount);
+
+        ITax tax = TaxFactory.createTax(TaxFactory.IGV_TAX);
+        order.calculateTax(tax);
+
         orderRepository.create(order);
         context.status(HttpStatus.CREATED_201)
                 .header(HttpHeader.LOCATION.name(), Paths.formatPostLocation(order.getId().toString()));
@@ -106,7 +106,6 @@ public class OrderControllerImpl implements OrderController {
         orderRepository.delete(context.pathParam(ID));
 
     }
-
 
     @Override
     public void update(Context context) {
