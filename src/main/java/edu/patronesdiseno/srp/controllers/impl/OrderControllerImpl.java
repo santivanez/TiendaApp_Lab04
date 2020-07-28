@@ -53,8 +53,8 @@ public class OrderControllerImpl implements OrderController {
 //        order.setOrderItems(items);
 
         //EJEMPLO DE LA 4****************
-        AddressUrbanizacion urbanizacion = new AddressUrbanizacion();
-        Address ad1 = urbanizacion.withNro(152)
+        AddressBuilder builder = new AddressBuilder();
+        Address ad1 = builder.withNro(152)
                 .withAvenida("Cesar Canevarp")
                 .withUrbanizacion("San Juan")
                 .build();
@@ -65,13 +65,16 @@ public class OrderControllerImpl implements OrderController {
         //DiscountFactory factoryDiscount = new DiscountFactory();
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_ANNIVERSARY);
+        
 //        IDiscountFactory factoryDiscount = new CouponDiscountFactory();
 //        IDiscount discount = factoryDiscount.createDiscount();
         
         //DiscountFactory con singleton
-        IDiscount discount = DiscountFactory.createDiscount(DiscountFactory.DISCOUNT_COUPON);
+        IDiscount discount = DiscountFactory.getFactory().createDiscount(DiscountFactory.DISCOUNT_COUPON);
         order.calculateTotalOrder(discount);
 
+//        ITaxFactory tax = new IgvTaxFactory();
+//        ITax igv = tax.createTax();
         ITax tax = TaxFactory.createTax(TaxFactory.IGV_TAX);
         System.out.println(order.calculateTax(tax));
 

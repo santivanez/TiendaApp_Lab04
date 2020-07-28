@@ -10,7 +10,4 @@ public class CouponDiscountFactory implements IDiscountFactory {
         
         return new CouponDiscount();
     }
-
-
-    
 }

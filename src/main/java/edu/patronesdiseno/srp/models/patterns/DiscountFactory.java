@@ -9,21 +9,23 @@ public class DiscountFactory {
     public static final String DISCOUNT_COUPON = "Coupon";
     public static final String DISCOUNT_ANNIVERSARY = "Anniversary";
     
-    private static IDiscount instanceCoupon;
-    private static IDiscount instanceAnniversary;
+    private static DiscountFactory instance;
 
-    private DiscountFactory(){
+    private DiscountFactory(){}
     
+    public static DiscountFactory getFactory(){
+        if(instance == null)
+            instance= new DiscountFactory();
+        return instance;
     }
-    public static IDiscount createDiscount(String typeDiscount)   {
+    
+    public IDiscount createDiscount(String typeDiscount)   {
 
         switch(typeDiscount){
-            case DISCOUNT_COUPON :  if(instanceCoupon == null)
-                                         instanceCoupon = new CouponDiscount();
-                                    return instanceCoupon;
-            case DISCOUNT_ANNIVERSARY : if(instanceCoupon == null)
-                                            instanceAnniversary = new AnniversaryDiscount();
-                                        return instanceAnniversary;
+            case DISCOUNT_COUPON :  
+                                    return new CouponDiscount();
+            case DISCOUNT_ANNIVERSARY : 
+                                    return new AnniversaryDiscount();
             default : return null;
         }
     }    
